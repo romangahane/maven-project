@@ -19,15 +19,12 @@ stages{
 
         post {
         success {
-            archiveArtifacts artifacts: '**/target/*.war'
+             dir("webapp/target/")
+            {
+            stash name: "maven-build", includes: "*.war"
+                 }
                  }
             }
 
     }
 
-   
-
-    
-}
-
-}
